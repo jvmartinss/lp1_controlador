@@ -4,8 +4,8 @@
 #include <vector>
 #include <string>
 #include "transporte.h"
-#include "passageiro.h" 
-#include "cidade.h"   
+#include "passageiro.h"
+#include "cidade.h"
 
 class Viagem {
 private:
@@ -24,6 +24,11 @@ public:
     int calcularDistancia() const;
     bool isEmAndamento() const;
     Cidade* getDestino() const;
+
+    // Métodos adicionados
+    Transporte* getTransporte() const; 
+    std::vector<Passageiro*> getPassageiros() const; 
+    Cidade* getOrigem() const; 
 };
 
 #endif
