@@ -17,14 +17,11 @@ void Passageiro::setLocalAtual(Cidade* local) {
     localAtual = local;
 }
 
-// Função para salvar a lista de passageiros em um arquivo CSV
 void Passageiro::salvarPassageirosEmCSV(const std::vector<Passageiro*>& passageiros) {
     std::ofstream arquivo("passageiros.csv");
     if (arquivo.is_open()) {
-        // Escreve o cabeçalho
         arquivo << "Nome,Local Atual\n";
-
-        // Escreve os dados dos passageiros
+        
         for (const auto& passageiro : passageiros) {
             arquivo << passageiro->getNome() << "," 
                     << (passageiro->getLocalAtual() ? passageiro->getLocalAtual()->getNome() : "Desconhecido") 
