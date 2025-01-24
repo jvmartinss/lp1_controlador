@@ -19,6 +19,9 @@ private:
     int horas_descanso_restantes;
 
 public:
+    int getVelocidade() const;
+    int getDistanciaEntreDescansos() const;
+    int getTempoDeDescanso() const;
     Transporte(std::string nome, char tipo, int capacidade, int velocidade, int distancia_entre_descansos, int tempo_de_descanso, Cidade* localAtual);
 
     std::string getNome() const;
