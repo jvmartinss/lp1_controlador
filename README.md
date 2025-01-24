@@ -106,7 +106,7 @@ O programa apresenta um menu com as seguintes opções:
 
 ---
 
-## Melhorias Futuras
+## Melhorias Faltantes
 
 - Implementar persistência de dados para carregamento ao reiniciar o programa.
 - Adicionar suporte para editar ou remover entidades (cidades, transportes, etc.).
