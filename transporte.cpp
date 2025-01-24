@@ -44,3 +44,16 @@ void Transporte::viajar(int distancia) {
 int Transporte::calcularTempoViagem(int distancia) const {
     return std::ceil(static_cast<double>(distancia) / velocidade);
 }
+
+
+int Transporte::getVelocidade() const {
+    return velocidade;
+}
+
+int Transporte::getDistanciaEntreDescansos() const {
+    return distancia_entre_descansos;
+}
+
+int Transporte::getTempoDeDescanso() const {
+    return tempo_de_descanso;
+}
