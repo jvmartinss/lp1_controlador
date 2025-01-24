@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "cidade.h"  // Para usar a classe Cidade
+#include "cidade.h"  
 
 class Passageiro {
 public:
@@ -23,4 +23,4 @@ private:
     Cidade* localAtual;
 };
 
-#endif // PASSAGEIRO_H
+#endif 
