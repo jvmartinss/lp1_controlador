@@ -1,78 +1,83 @@
 # Controlador de Viagens
 
-Este projeto implementa um sistema de controle de viagens, permitindo o gerenciamento de cidades, trajetos, transportes, passageiros e viagens. O sistema é interativo e opera por meio de um menu que permite realizar diversas operações, como cadastro de entidades e controle de viagens.
-
----
+Este projeto é um sistema de gerenciamento de viagens que permite cadastrar cidades, trajetos, transportes e passageiros, além de planejar e monitorar viagens entre diferentes localidades. O sistema é interativo e opera em um menu principal com várias opções para realizar as operações.
 
 ## Funcionalidades
 
-1. **Cadastrar Cidades:**
-   - Permite adicionar cidades ao sistema.
-2. **Cadastrar Trajetos:**
-   - Define trajetos entre cidades, especificando origem, destino, tipo (terrestre ou aquático) e distância.
-3. **Cadastrar Transportes:**
-   - Adiciona meios de transporte, incluindo informações como capacidade, velocidade e regras de descanso.
-4. **Cadastrar Passageiros:**
-   - Insere passageiros no sistema e vincula cada um a uma cidade inicial.
-5. **Iniciar Viagem:**
-   - Organiza uma viagem entre duas cidades, utilizando um transporte e transportando passageiros.
-6. **Avançar Horas:**
-   - Simula o progresso do tempo e atualiza o estado das viagens em andamento.
-7. **Relatar Estado:**
-   - Exibe informações sobre transportes e passageiros, como localização atual.
-8. **Salvar Relatórios:**
-   - Gera relatórios em arquivos CSV para cidades, passageiros e trajetos.
+1. **Cadastro de Cidades**
+   - Permite cadastrar cidades que serão utilizadas no planejamento das viagens.
 
----
+2. **Cadastro de Trajetos**
+   - Define as conexões entre as cidades, especificando o tipo de trajeto (terrestre ou aquático) e a distância.
+
+3. **Cadastro de Transportes**
+   - Cadastra veículos com características específicas, como capacidade, velocidade, e parâmetros relacionados a descanso e distância percorrida.
+
+4. **Cadastro de Passageiros**
+   - Registra passageiros no sistema, associando-os a uma cidade de origem.
+
+5. **Iniciar Viagem**
+   - Planeja uma viagem, associando um transporte e um grupo de passageiros a um trajeto definido entre cidades.
+
+6. **Avançar Horas**
+   - Simula o avanço do tempo, atualizando o progresso das viagens em andamento e o estado dos transportes.
+
+7. **Relatar Estado**
+   - Exibe o estado atual do sistema, incluindo informações sobre viagens, transportes e passageiros.
+
+8. **Salvar Relatório**
+   - Salva as informações de passageiros e viagens em arquivos CSV para consulta futura.
 
 ## Estrutura do Projeto
 
-O sistema é composto por diversas classes, cada uma representando um aspecto do modelo:
+### **Arquivos principais**
 
-### Classes Principais
+- `main.cpp`: Contém a lógica principal do programa e o menu interativo.
+- `controlador_de_transito.h` e `controlador_de_transito.cpp`: Gerencia o controle geral de todas as entidades do sistema (cidades, trajetos, transportes, passageiros e viagens).
+- `cidade.h` e `cidade.cpp`: Representa as cidades cadastradas no sistema.
+- `trajeto.h` e `trajeto.cpp`: Define os trajetos entre as cidades, incluindo o tipo e a distância.
+- `transporte.h` e `transporte.cpp`: Implementa os transportes, com detalhes como capacidade, velocidade, descanso, e gerenciamento do local atual.
+- `passageiro.h` e `passageiro.cpp`: Modela os passageiros e inclui funcionalidade para salvar dados em arquivos CSV.
+- `viagem.h` e `viagem.cpp`: Gerencia as viagens, incluindo o progresso, o transporte associado, os passageiros e os trajetos.
 
-1. **`Cidade`**
-   - Representa uma cidade, identificada pelo seu nome.
+### **Estrutura de Dados**
 
-2. **`Trajeto`**
-   - Define um trajeto entre duas cidades, incluindo o tipo (terrestre ou aquático) e a distância.
+#### `Cidade`
+- Representa uma cidade com um nome.
 
-3. **`Transporte`**
-   - Representa um meio de transporte, com informações como capacidade, velocidade, distância entre descansos e tempo de descanso.
+#### `Trajeto`
+- Define uma rota entre duas cidades, incluindo o tipo de trajeto (aquático ou terrestre) e a distância em quilômetros.
 
-4. **`Passageiro`**
-   - Representa um passageiro, com nome e localização atual.
+#### `Transporte`
+- Inclui características como:
+  - Nome
+  - Tipo (aquático ou terrestre)
+  - Capacidade máxima de passageiros
+  - Velocidade em km/h
+  - Distância máxima entre descansos
+  - Tempo necessário de descanso
 
-5. **`Viagem`**
-   - Gerencia a realização de uma viagem, incluindo transporte, passageiros, origem, destino e o progresso da viagem.
+#### `Passageiro`
+- Armazena o nome e a localização atual de um passageiro.
+- Possui funcionalidade para salvar informações em arquivos CSV.
 
-6. **`ControladorDeTransito`**
-   - Coordena o funcionamento do sistema, gerenciando as entidades cadastradas e as interações entre elas.
+#### `Viagem`
+- Gerencia a viagem associando transporte, passageiros, origem e destino.
+- Controla o progresso da viagem e atualiza os estados dos participantes e do transporte.
 
-7. **`main`**
-   - Contém o menu interativo para interação com o sistema.
+#### `ControladorDeTransito`
+- Centraliza o gerenciamento de todas as entidades, permitindo realizar operações como cadastro, planejamento de viagens, avanço de tempo e salvamento de relatórios.
 
----
+## Como Usar
 
-## Requisitos
+### **Requisitos**
+- Compilador C++ compatível com o padrão C++11 ou superior.
+- Ambiente configurado para compilar e executar programas C++.
 
-- **Linguagem:** C++
-- **Compilador:** Recomendado GCC ou equivalente com suporte a C++11 ou superior.
-- **Bibliotecas Padrão:**
-  - `<iostream>` para entrada e saída.
-  - `<vector>` para armazenamento dinâmico.
-  - `<string>` para manipulação de textos.
-  - `<fstream>` para operações com arquivos.
-  - `<cmath>` para cálculos matemáticos.
-  - `<exception>` para tratamento de erros.
-
----
-
-## Execução
-
-1. Compile todos os arquivos com o seguinte comando:
+### **Passo a Passo**
+1. Compile o projeto usando o comando:
    ```bash
-   g++ -o controlador main.cpp cidade.cpp controlador_de_transito.cpp passageiro.cpp trajeto.cpp transporte.cpp viagem.cpp
+   g++ -o controlador main.cpp controlador_de_transito.cpp cidade.cpp trajeto.cpp transporte.cpp passageiro.cpp viagem.cpp
    ```
 
 2. Execute o programa:
@@ -80,39 +85,36 @@ O sistema é composto por diversas classes, cada uma representando um aspecto do
    ./controlador
    ```
 
----
+3. Navegue pelo menu interativo para realizar as operações desejadas.
 
-## Detalhes do Menu Interativo
+## Fluxo do Menu
 
-O programa apresenta um menu com as seguintes opções:
+1. **Cadastrar Cidade**
+   - Insira o nome da cidade a ser cadastrada.
 
-1. **Cadastrar Cidade:** Solicita o nome da cidade e a adiciona ao sistema.
-2. **Cadastrar Trajeto:** Solicita informações sobre origem, destino, tipo e distância do trajeto.
-3. **Cadastrar Transporte:** Solicita informações sobre o transporte, como capacidade, velocidade e local atual.
-4. **Cadastrar Passageiro:** Solicita o nome do passageiro e sua localização inicial.
-5. **Iniciar Viagem:** Define um transporte, passageiros, origem e destino para iniciar uma viagem.
-6. **Avançar Horas:** Simula o avanço do tempo e atualiza o estado do sistema.
-7. **Relatar Estado:** Exibe informações sobre transportes e passageiros.
-8. **Salvar Relatório:** Salva os dados do sistema em arquivos CSV.
-9. **Sair:** Encerra o programa.
+2. **Cadastrar Trajeto**
+   - Insira os nomes das cidades de origem e destino, o tipo de trajeto (T para terrestre, A para aquático), e a distância em quilômetros.
 
----
+3. **Cadastrar Transporte**
+   - Forneça informações como nome, tipo, capacidade, velocidade, distância máxima entre descansos, tempo de descanso e localização inicial.
 
-## Estrutura dos Arquivos de Relatório
+4. **Cadastrar Passageiro**
+   - Insira o nome do passageiro e a cidade onde ele está atualmente.
 
-- **`relatorio_cidades.csv`:** Contém a lista de cidades cadastradas.
-- **`relatorio_passageiros.csv`:** Contém informações sobre os passageiros e suas localizações.
-- **`relatorio_trajetos.csv`:** Contém informações sobre os trajetos cadastrados.
+5. **Iniciar Viagem**
+   - Escolha o transporte, cidade de origem, destino e passageiros que participarão da viagem.
 
----
+6. **Avançar Horas**
+   - Simule o avanço do tempo, atualizando o progresso das viagens e o estado dos transportes.
 
-## Melhorias Faltantes
+7. **Relatar Estado**
+   - Exibe um resumo das viagens, transportes e passageiros.
 
-- Implementar persistência de dados para carregamento ao reiniciar o programa.
-- Adicionar suporte para editar ou remover entidades (cidades, transportes, etc.).
-- Implementar validação de entrada mais robusta no menu.
+8. **Salvar Relatório**
+   - Salva informações sobre os passageiros em um arquivo CSV (`passageiros.csv`).
 
----
+
+
 
 ## Autor
 Projeto desenvolvido por [João Victor Martins de Almeida] e [Thiago Araújo Benevides]  como parte de um sistema de controle de viagens em C++.
