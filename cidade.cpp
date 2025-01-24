@@ -1,4 +1,3 @@
-
 #include "cidade.h"
 
 Cidade::Cidade(std::string nome) : nome(nome) {}
