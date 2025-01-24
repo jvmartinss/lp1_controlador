@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <fstream>
+#include <set>
 #include "cidade.h"
 #include "transporte.h"
 #include "trajeto.h"
@@ -16,7 +19,14 @@ public:
 
     // Funções principais
     void carregarRelatorio();
+    void carregarPassageirosCSV();
+    void carregarTransportesCSV();
+    void carregarTrajetosCSV();
+    void salvarTrajetosCSV();
+    void carregarViagensCSV();
+    void salvarViagensCSV();   
     void salvarRelatorio();
+    std::string normalizarNome(const std::string& nome);
 
     // Métodos de cadastro
     void cadastrarCidade(const std::string& nome);
@@ -41,6 +51,7 @@ private:
     std::vector<Passageiro*> passageiros;
     std::vector<Trajeto*> trajetos;
     std::vector<Viagem*> viagens;
+    
 };
 
 #endif // CONTROLADOR_DE_TRANSITO_H
